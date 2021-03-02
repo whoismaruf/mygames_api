@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from core.models import Games
+from core.models import Game
 from rest_framework import serializers
 
 
@@ -17,5 +17,5 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 
 class GameSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Games
-        fields = ['name', 'is_purchased', 'gamer']
+        model = Game
+        fields = ['name', 'is_purchased', 'gamer', 'added_date']

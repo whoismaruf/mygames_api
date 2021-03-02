@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import permissions
 from rest_framework import viewsets
-
-from .serializers import UserSerializer, GroupSerializer
+from core.models import Game
+from .serializers import UserSerializer, GroupSerializer, GameSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -22,3 +22,11 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+
+class GameViewSet(viewsets.ModelViewSet):
+    """
+    API Endpoint for games library
+    """
+    queryset = Game.objects.all()
+    serializer_class = GameSerializer
+    # permission_classes = [permissions.IsAuthenticated]
